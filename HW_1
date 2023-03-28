@@ -1,1 +1,38 @@
+#Q1
+def my_fun(x1,x2,x3):
+    if type(x1) == int or type(x2) == int or type(x3) == int:
+        print('Error: parameters should be float')
+    elif type(x1) != float or type(x2) != float or type(x3) != float:
+        print("None")
+    elif x1+x2+x3==0:
+        print('Not a number – denominator equals zero')
+    else:
+        num = ((x1 + x2 + x3) * (x2 + x3) * x3) / (x1 + x2 + x3)
+        print(float(num))
 
+#Q2
+#df1
+def revword(my_word):
+    n=""
+    my_word=my_word.lower()
+    for i in range(1,len(my_word)+1):
+        n+=my_word[-i]
+    return n
+#df2
+def countword(file):
+    counter= 1
+    f_name = open(file)
+    empty=[]
+    for line in f_name:
+        line = line.rstrip()
+        if len(line.split())<2:
+            word= line
+        else:
+            l_line= line.split()
+            for i in l_line:
+                revword(i)
+                empty.append(revword(i))
+        for i in empty:
+            if i==word:
+                counter+=1
+    return counter
